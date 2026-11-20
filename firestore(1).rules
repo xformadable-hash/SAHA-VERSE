@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    match /notes/{noteId} {
+      // Public reading; only an authenticated admin can create, edit or delete.
+      allow read: if true;
+      allow create: if isAdmin()
+        && request.resource.data.createdBy == request.auth.uid
+        && request.resource.data.subject is string
+        && request.resource.data.title is string
+        && request.resource.data.filePath is string
+        && request.resource.data.downloadURL is string;
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Admin membership must be created manually in Firebase Console by the project owner.
+    // No client can grant itself admin access.
+    match /admins/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow write: if false;
+    }
+  }
+}

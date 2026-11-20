@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SAHA ACADEMY — HSC learning and notes library">
+<title>SAHA ACADEMY | Notes Library</title>
+<style>
+:root{--navy:#0b1730;--navy2:#14294a;--gold:#d7ad5b;--goldp:#f4e6c6;--paper:#f5f7fb;--ink:#18263d;--muted:#718096;--line:#e5eaf1;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}button,input,select{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.09em;color:var(--navy)}.mark{height:40px;width:40px;border-radius:12px;background:linear-gradient(140deg,#f4dfa9,#c3943e);display:grid;place-items:center;font-size:20px}.brand small{display:block;font-size:9px;letter-spacing:.2em;color:#9b7a3d}.btn{border:0;border-radius:10px;padding:11px 15px;cursor:pointer;font-weight:750}.gold{background:var(--gold);color:#14213a}.outline{background:#fff;border:1px solid var(--line);color:var(--navy)}.navright{display:flex;gap:9px;align-items:center}.hero{background:radial-gradient(circle at 85% 15%,#28466e,transparent 30%),linear-gradient(120deg,#09152b,#142c4d);color:#fff;padding:46px 0}.hero .eyebrow{color:#f0dba9;font-size:10px;letter-spacing:.2em;font-weight:850}.hero h1{font-size:clamp(32px,5vw,52px);line-height:1.08;margin:15px 0}.hero h1 span{color:#f0dba9}.hero p{max-width:640px;color:#c7d2e1;line-height:1.75;font-size:14px;margin:0}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:25px 0}.toolbar input,.toolbar select,.field input,.field select{background:white;border:1px solid var(--line);border-radius:10px;padding:11px 12px;color:var(--ink);min-width:0}.toolbar input{flex:1;min-width:190px}.toolbar select{min-width:160px}.section-title{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:30px 0 16px}.section-title h2{color:var(--navy);margin:0;font-size:25px}.section-title p{color:var(--muted);font-size:12px;margin:5px 0 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.note{background:#fff;border:1px solid var(--line);border-radius:15px;padding:17px;box-shadow:0 7px 22px #12254408}.note .type{display:inline-block;background:#f8f0df;color:#916a25;padding:5px 8px;border-radius:30px;font-size:9px;font-weight:850;letter-spacing:.08em}.note h3{font-size:16px;color:var(--navy);margin:13px 0 5px}.note .meta{font-size:11px;color:var(--muted);line-height:1.6}.note .actions{display:flex;gap:8px;margin-top:15px}.note .actions a,.note .actions button{font-size:11px;padding:9px 11px;border-radius:8px;font-weight:750}.view{background:var(--navy);color:#fff}.download{background:#f1f4f8;color:#263650;border:0}.delete{background:#fff0f0;color:#a33;border:0}.empty{grid-column:1/-1;text-align:center;padding:38px 15px;border:1px dashed #cbd4e1;border-radius:15px;color:var(--muted);background:#fff}.empty b{display:block;color:var(--navy);margin-bottom:6px}.panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:22px;margin:24px 0;box-shadow:0 8px 28px #12254409}.panel h2{font-size:20px;color:var(--navy);margin:0 0 5px}.panel>p{font-size:12px;color:var(--muted);margin:0 0 18px;line-height:1.6}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:11px;font-weight:750;color:#536176}.field input,.field select{width:100%}.field.full{grid-column:1/-1}.uploadrow{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.hint{font-size:10px;color:var(--muted);line-height:1.6}.status{font-size:12px;margin-top:12px;min-height:18px;color:#456}.hidden{display:none!important}.authbox{max-width:430px;margin:50px auto;background:white;border:1px solid var(--line);border-radius:17px;padding:24px}.authbox h2{color:var(--navy);margin:0 0 5px}.authbox p{color:var(--muted);font-size:12px;line-height:1.6}.authbox .field{margin:12px 0}.footer{margin-top:65px;background:#071226;color:#a9b7ca;padding:30px 0;font-size:11px}.footer .wrap{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.pill{font-size:10px;border-radius:30px;padding:6px 9px;background:#eaf5ee;color:#28764b;font-weight:800}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.navright .outline{display:none}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.hero{padding:38px 0}.nav{height:64px}.brand{font-size:12px}.brand small{font-size:8px}.navright .btn{padding:9px 10px;font-size:11px}.section-title{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#"><span class="mark">S</span><span>SAHA ACADEMY<small>LEARN · GROW · ACHIEVE</small></span></a>
+<div class="navright"><span id="userLabel" class="hint"></span><button class="btn outline" id="loginNav">Admin login</button><button class="btn outline hidden" id="logoutBtn">Sign out</button><a class="btn gold" href="#notes">Browse notes ↗</a></div>
+</div></header>
+<section class="hero"><div class="wrap"><div class="eyebrow">HSC NOTES LIBRARY · BANGLADESH</div><h1>Learn with clarity.<br><span>Prepare with confidence.</span></h1><p>এক জায়গায় HSC-এর ছয়টি বিষয়ের নোট। বিষয়, অধ্যায় ও ফাইলের ধরন অনুযায়ী খুঁজে পড়ুন। Admin হিসেবে নিরাপদে PDF ও ছবি আপলোড করুন।</p></div></section>
+<main class="wrap">
+<section id="adminPanel" class="panel hidden">
+<h2>Admin upload desk</h2><p>Sign in with the authorized admin account, then add a note. Uploaded files are stored in Firebase Storage; searchable note details are stored in Firestore.</p>
+<form id="uploadForm">
+<div class="fields">
+<div class="field"><label for="subject">Subject / বিষয়</label><select id="subject" required><option value="">Choose subject</option><option>বাংলা</option><option>English</option><option>পৌরনীতি ও সুশাসন</option><option>ভূগোল</option><option>ইতিহাস</option><option>অর্থনীতি</option></select></div>
+<div class="field"><label for="chapter">Chapter / অধ্যায়</label><input id="chapter" required maxlength="120" placeholder="e.g. Chapter 1 — Introduction"></div>
+<div class="field"><label for="title">Note title / নোটের শিরোনাম</label><input id="title" required maxlength="140" placeholder="Enter a clear title"></div>
+<div class="field"><label for="kind">File category</label><select id="kind"><option>Chapter notes</option><option>Short suggestion</option><option>MCQ practice</option><option>CQ practice</option><option>Diagram / Map</option><option>Other</option></select></div>
+<div class="field full"><label for="description">Short description (optional)</label><input id="description" maxlength="300" placeholder="What will students learn from this file?"></div>
+<div class="field full"><label for="file">Choose PDF or image</label><input id="file" type="file" accept="application/pdf,image/jpeg,image/png,image/webp" required><span class="hint">Allowed: PDF, JPG, PNG, WEBP. Maximum 15 MB per file.</span></div>
+</div>
+<div class="uploadrow" style="margin-top:16px"><button class="btn gold" id="uploadBtn" type="submit">Upload note ↗</button><span class="hint">Publishing makes the note visible to everyone.</span></div><div id="uploadStatus" class="status" aria-live="polite"></div>
+</form></section>
+<section id="loginPanel" class="authbox hidden"><h2>Admin sign in</h2><p>Only the authorized SAHA ACADEMY administrator can upload, edit or remove notes.</p>
+<form id="loginForm"><div class="field"><label for="email">Admin email</label><input id="email" type="email" autocomplete="username" required placeholder="admin@example.com"></div><div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required placeholder="Your password"></div><button class="btn gold" type="submit" style="width:100%">Sign in securely</button><div id="loginStatus" class="status" aria-live="polite"></div></form></section>
+<section id="notes"><div class="section-title"><div><h2>Study notes library</h2><p>বিষয় ও অধ্যায় অনুযায়ী প্রয়োজনীয় নোট খুঁজে নিন।</p></div><span class="pill" id="noteCount">Loading notes…</span></div>
+<div class="toolbar"><input id="search" type="search" placeholder="Search title, chapter or keyword…"><select id="subjectFilter"><option value="">All subjects</option><option>বাংলা</option><option>English</option><option>পৌরনীতি ও সুশাসন</option><option>ভূগোল</option><option>ইতিহাস</option><option>অর্থনীতি</option></select><select id="typeFilter"><option value="">All file types</option><option value="PDF">PDF</option><option value="Image">Image</option></select></div>
+<div class="grid" id="notesGrid"><div class="empty"><b>Connecting to your notes library…</b>Notes will appear here when Firebase is configured.</div></div></section>
+</main>
+<footer class="footer"><div class="wrap"><span>© 2026 SAHA ACADEMY · Learn · Grow · Achieve</span><span>Made for HSC learners in Bangladesh 🇧🇩</span></div></footer>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import { getFirestore, collection, addDoc, deleteDoc, doc, getDocs, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-storage.js";
+
+/* 1) Replace these placeholder values with your Firebase project's web-app config. */
+const firebaseConfig = {
+  apiKey: "AIzaSyDPPy6U2YDuHxafUqN_Mr4-8Wlo6zG1srA",
+  authDomain: "saha-verse.firebaseapp.com",
+  projectId: "saha-verse",
+  storageBucket: "saha-verse.firebasestorage.app",
+  messagingSenderId: "489453774378",
+  appId: "1:489453774378:web:0f5e35cb2e022fcfc60553",
+  measurementId: "G-9NGYR0MRP1"
+};
+const configured = Object.values(firebaseConfig).every(v => v && !String(v).includes("PASTE_"));
+const $ = id => document.getElementById(id);
+let auth, db, storage, currentUser = null, allNotes = [];
+const maxBytes = 15 * 1024 * 1024;
+const allowed = ["application/pdf","image/jpeg","image/png","image/webp"];
+function status(id,msg,isError=false){$(id).textContent=msg;$(id).style.color=isError?"#b42318":"#28764b"}
+function safeText(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function showAuthState(user){
+ currentUser=user;
+ $("adminPanel").classList.toggle("hidden",!user);
+ $("loginPanel").classList.add("hidden");
+ $("loginNav").classList.toggle("hidden",!!user);
+ $("logoutBtn").classList.toggle("hidden",!user);
+ $("userLabel").textContent=user?`Admin: ${user.email}`:"";
+}
+if(!configured){
+ $("notesGrid").innerHTML='<div class="empty"><b>Firebase setup required</b>The website files are ready, but the Firebase project configuration has not been added yet. Follow SETUP.md in the downloaded package to connect your project.</div>';
+ $("noteCount").textContent="Setup pending";
+ $("loginNav").addEventListener("click",()=>alert("First complete Firebase setup using SETUP.md."));
+} else {
+ const app=initializeApp(firebaseConfig);auth=getAuth(app);db=getFirestore(app);storage=getStorage(app);
+ onAuthStateChanged(auth,user=>{showAuthState(user);});
+ await loadNotes();
+}
+$("loginNav").addEventListener("click",()=>{$("loginPanel").classList.toggle("hidden");$("loginPanel").scrollIntoView({behavior:"smooth",block:"center"})});
+$("logoutBtn").addEventListener("click",async()=>{await signOut(auth)});
+$("loginForm").addEventListener("submit",async e=>{e.preventDefault();if(!auth)return;try{await signInWithEmailAndPassword(auth,$("email").value.trim(),$("password").value);status("loginStatus","Signed in.");}catch(err){status("loginStatus",friendlyError(err),true)}});
+$("uploadForm").addEventListener("submit",async e=>{
+ e.preventDefault();if(!currentUser){status("uploadStatus","Please sign in as admin first.",true);return}
+ const file=$("file").files[0];if(!file)return;
+ if(!allowed.includes(file.type)){status("uploadStatus","Only PDF, JPG, PNG or WEBP files are allowed.",true);return}
+ if(file.size>maxBytes){status("uploadStatus","File is larger than 15 MB. Please choose a smaller file.",true);return}
+ const btn=$("uploadBtn");btn.disabled=true;btn.textContent="Uploading…";
+ try{
+  const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+  const filePath=`notes/${currentUser.uid}/${Date.now()}_${safeName}`;
+  const fileRef=ref(storage,filePath);
+  await uploadBytes(fileRef,file,{contentType:file.type});
+  const url=await getDownloadURL(fileRef);
+  await addDoc(collection(db,"notes"),{subject:$("subject").value,chapter:$("chapter").value.trim(),title:$("title").value.trim(),kind:$("kind").value,description:$("description").value.trim(),fileName:file.name,fileType:file.type==="application/pdf"?"PDF":"Image",filePath,downloadURL:url,size:file.size,createdAt:serverTimestamp(),createdBy:currentUser.uid});
+  $("uploadForm").reset();status("uploadStatus","Upload complete. Your note is now visible in the library.");await loadNotes();
+ }catch(err){status("uploadStatus",friendlyError(err),true)}
+ finally{btn.disabled=false;btn.textContent="Upload note ↗"}
+});
+async function loadNotes(){
+ try{const snap=await getDocs(query(collection(db,"notes"),orderBy("createdAt","desc")));allNotes=snap.docs.map(d=>({id:d.id,...d.data()}));renderNotes()}
+ catch(err){$("notesGrid").innerHTML=`<div class="empty"><b>Could not load notes</b>${safeText(friendlyError(err))}<br>Check your Firebase configuration, Firestore database and security rules.</div>`;$("noteCount").textContent="Unavailable"}
+}
+function renderNotes(){
+ const q=$("search").value.trim().toLowerCase(),s=$("subjectFilter").value,t=$("typeFilter").value;
+ const list=allNotes.filter(n=>(!s||n.subject===s)&&(!t||n.fileType===t)&&[n.title,n.chapter,n.subject,n.description,n.kind].some(x=>String(x||"").toLowerCase().includes(q)));
+ $("noteCount").textContent=`${list.length} ${list.length===1?"note":"notes"}`;
+ if(!list.length){$("notesGrid").innerHTML='<div class="empty"><b>No notes found</b>Try another search or select a different subject.</div>';return}
+ $("notesGrid").innerHTML=list.map(n=>`<article class="note"><span class="type">${safeText(n.fileType)} · ${safeText(n.kind||"Study material")}</span><h3>${safeText(n.title)}</h3><div class="meta">${safeText(n.subject)} · ${safeText(n.chapter)}${n.description?`<br>${safeText(n.description)}`:""}</div><div class="actions"><a class="view" href="${safeText(n.downloadURL)}" target="_blank" rel="noopener noreferrer">Open ${n.fileType==="PDF"?"PDF":"image"} ↗</a><a class="download" href="${safeText(n.downloadURL)}" download>Download</a>${currentUser?`<button class="delete" data-delete="${safeText(n.id)}">Delete</button>`:""}</div></article>`).join("");
+ document.querySelectorAll("[data-delete]").forEach(b=>b.addEventListener("click",()=>removeNote(b.dataset.delete)));
+}
+async function removeNote(id){
+ if(!currentUser||!confirm("Delete this note permanently?"))return;
+ const n=allNotes.find(x=>x.id===id);if(!n)return;
+ try{await deleteDoc(doc(db,"notes",id));if(n.filePath)await deleteObject(ref(storage,n.filePath));await loadNotes()}
+ catch(err){alert(friendlyError(err))}
+}
+function friendlyError(err){const code=err?.code||"";if(code.includes("auth/invalid-credential"))return"Email or password is incorrect.";if(code.includes("permission-denied"))return"Permission denied. Check that this account is listed as an admin in Firestore and your security rules are published.";if(code.includes("storage/unauthorized"))return"Upload permission denied. Check Storage rules and admin access.";return err?.message||"Something went wrong. Please try again."}
+["search","subjectFilter","typeFilter"].forEach(id=>$(id).addEventListener("input",renderNotes));
+</script>
+</body></html>

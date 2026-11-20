@@ -1,0 +1,19 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isAdmin() {
+      return request.auth != null
+        && firestore.exists(/databases/(default)/documents/admins/$(request.auth.uid));
+    }
+
+    match /notes/{userId}/{fileName} {
+      // Anyone can read published learning files; only an authorized admin can upload/delete.
+      allow read: if true;
+      allow create, update: if isAdmin()
+        && request.auth.uid == userId
+        && request.resource.size < 15 * 1024 * 1024
+        && request.resource.contentType.matches('(application/pdf|image/jpeg|image/png|image/webp)');
+      allow delete: if isAdmin() && request.auth.uid == userId;
+    }
+  }
+}
